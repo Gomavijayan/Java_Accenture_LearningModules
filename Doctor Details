@@ -1,0 +1,105 @@
+public class Doctor {
+private String doctorId;
+private String doctorName;
+private String specialization;
+private Hospital hospital;
+public Doctor(String doctorId, String doctorName, String specialization,
+Hospital hospital){
+ this.doctorId=doctorId;
+ this.doctorName=doctorName;
+ this.specialization=specialization;
+ this.hospital=hospital;
+}
+public void setDoctorId(String doctorId){
+ this.doctorId=doctorId;
+}
+public String getDoctorId(){
+ return doctorId;
+}
+public void setDoctorName(String doctorName){
+ this.doctorName=doctorName;
+}
+public String getDoctorName(){
+ return doctorName;
+}
+public void setSpecialization(String specialization){
+ this.specialization=specialization;
+}
+public String getSpecialization(){
+ return specialization;
+}
+public void setHospital(Hospital hospital){
+ this.hospital=hospital;
+}
+public Hospital getHospital(){
+ return hospital;
+}
+}
+//=================================================//
+public class Hospital {
+private String hospitalName;
+private long contactNumber;
+private String city;
+public Hospital(String hospitalName, long contactNumber, String city){
+ this.hospitalName=hospitalName;
+ this.contactNumber=contactNumber;
+ this.city=city;
+}
+public String getHospitalName(){
+ return hospitalName;
+}
+public void setHospitalName(String hospitalName){
+ this.hospitalName=hospitalName;
+}
+public long getContactNumber(){
+ return contactNumber;
+}
+public void setContactNumber(long contactNumber){
+ this.contactNumber=contactNumber;
+}
+public String getCity(){
+ return city;
+}
+public void setCity(String city){
+ this.city=city;
+}
+}
+//============================================================//
+import java.util.Scanner;
+public class Main {
+public static Doctor createDoctorDetails()
+ {
+ Scanner sc=new Scanner(System.in);
+ String dname, spec, did, hname, city;
+ long pnumber;
+ System.out.println("Enter Hospital Name");
+ hname=sc.next();
+ System.out.println("Enter Contact Number");
+ pnumber=sc.nextLong();
+ System.out.println("Enter City");
+ city=sc.next();
+
+ Hospital hos = new Hospital(hname,pnumber,city);
+ System.out.println("Enter Doctor Id");
+ did=sc.next();
+ System.out.println("Enter Doctor Name");
+ dname=sc.next();
+ System.out.println("Enter Specialization");
+ spec=sc.next();
+
+Doctor d = new Doctor(did,dname,spec,hos);
+ return d;
+ }
+public static void main(String[] arg)
+ {
+ Scanner sc=new Scanner(System.in);
+ Doctor d = createDoctorDetails();
+
+ System.out.println("Doctor id: "+d.getDoctorId());
+ System.out.println("Doctor name: "+d.getDoctorName());
+ System.out.println("Specialization: "+d.getSpecialization());
+ System.out.println("Hospital Name: "+d.getHospital().getHospitalName());
+ System.out.println("Contact Number: "+d.getHospital().getContactNumber());
+ System.out.println("City: "+d.getHospital().getCity());
+ }
+} 
