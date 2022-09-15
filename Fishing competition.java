@@ -22,6 +22,7 @@ public class Main{
  }
  else if(small<0){
  System.out.println(small+" is an invalid input");
+ System.exit(1);
  }
  else{
  total=(big*10)+(medium*6)+(small*3);
